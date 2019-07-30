@@ -35,7 +35,7 @@
             <br>
         </sec:authorize>
         <sec:authorize access="isAuthenticated()">
-            <a class="btn btn-outline-primary" href="/account" title="Личный кабинет">
+            <a class="btn btn-outline-primary" href="/account#" title="Личный кабинет">
                 <i class="fa fa-user-circle" aria-hidden="true"></i>
                 <sec:authentication property="principal.username"/> </a>
             <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split"
@@ -54,7 +54,7 @@
 </nav>
 <script>
     var page = window.location.pathname;
-    if (page != '/account') {
+    if (page != '/account#') {
         var link = document.querySelector('[ href="' + page + '" ]');
         link.style.color = '#dc3545';
         link.style.borderBottom = '2px solid #dc3545';
