@@ -2,6 +2,7 @@ package com.forgegrid.controllers;
 
 import com.forgegrid.bussines.service.UserService;
 import com.forgegrid.dal.entity.UserEntity;
+import com.forgegrid.presentation.dto.AccountInfoForm;
 import com.forgegrid.presentation.dto.EditProfileForm;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -17,20 +18,48 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
 
 @Controller
-public class EditProfileController {
+public class AccountController {
 
     private final UserService userService;
 
-    public EditProfileController(UserService userService) {
+    public AccountController(UserService userService) {
         this.userService = userService;
     }
 
+    @GetMapping("/account")
+    public String account(Model model, @AuthenticationPrincipal UserEntity user) {
+        model.addAttribute("mode", "info");
+        AccountInfoForm accountInfoForm = new AccountInfoForm(
+                user.getLogin(),
+                user.getEmail(),
+                user.getRole(),
+                user.getMoney()
+        );
+        model.addAttribute("user", accountInfoForm);
+        return "account";
+    }
+
     @GetMapping("/account/edit")
-    public String accountedit(Model model, @AuthenticationPrincipal UserEntity user) {
+    public String edit(Model model, @AuthenticationPrincipal UserEntity user) {
+        model.addAttribute("mode", "edit");
         model.addAttribute("user", new EditProfileForm());
         model.addAttribute("currentLogin", user.getLogin());
         model.addAttribute("currentEmail", user.getEmail());
-        return "accountedit";
+        return "account";
+    }
+
+    @GetMapping("/account/purchases")
+    public String purchases(Model model, @AuthenticationPrincipal UserEntity user) {
+        model.addAttribute("mode", "purchases");
+        model.addAttribute("user", user);
+        return "account";
+    }
+
+    @GetMapping("/account/balance")
+    public String balance(Model model, @AuthenticationPrincipal UserEntity user) {
+        model.addAttribute("mode", "balance");
+        model.addAttribute("user", user);
+        return "account";
     }
 
     @PostMapping("/account/edit")

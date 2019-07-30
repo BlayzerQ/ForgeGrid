@@ -48,25 +48,20 @@
 
             <h1 class="px-3 pb-4 text-center">Личный кабинет</h1>
 
-            <sec:authorize access="!isAuthenticated()">
-                <center><p>Для выполнения этого действия требуется авторизация</p></center>
-                <br>
-            </sec:authorize>
-            <sec:authorize access="isAuthenticated()">
                 <ul class="nav justify-content-center account-menu">
                     <li class="nav-item px-3">
                         <a class="nav-link " href="/account">Личные данные</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link " href="/account?mode=purchases">Список покупок</a>
+                        <a class="nav-link " href="/account/purchases">Список покупок</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link " href="/account?mode=balance">Пополнение счета</a>
+                        <a class="nav-link " href="/account/balance">Пополнение счета</a>
                     </li>
                 </ul>
 
                 <div class="separator mt-2 mb-5"></div>
-				<c:if test="${empty mode}">
+				<c:if test="${mode == 'info'}">
 					<div class="d-flex justify-content-center">
 						<div class="col-4 border rounded px-3 pt-3">
 							<div class="row data-row row-correction">
@@ -88,7 +83,7 @@
 	
 							<hr>
 	
-							<a href="/account?mode=edit" class="btn btn-block btn-primary mb-3">
+							<a href="/account/edit" class="btn btn-block btn-primary mb-3">
 							<i class="fa fa-pencil" aria-hidden="true"></i>Редактировать</a>
 						</div>
 					</div>
@@ -149,6 +144,13 @@
 							</tr>
 							</thead>
 							<tbody>
+								<tr>
+								<c:forEach var="item" items='${user.purchases}'>
+									<td>${item.title} | ${item.productVersion} | ${item.mcVersion}</td>
+									<td>${item.title}</td>
+									<td>${item.price}</td>
+								</c:forEach>
+								</tr>
 							</tbody>
 						</table>
 					</div>
@@ -163,7 +165,6 @@
 						</div>
 					</div>
 				</c:if>
-            </sec:authorize>
 
         </div>
 
