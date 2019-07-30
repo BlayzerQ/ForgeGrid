@@ -50,7 +50,7 @@ h1 {
 }
 
 .button-correction {
-    width: 102%;
+    width: 100%;
 }
 
 .modal-correction {
@@ -390,5 +390,21 @@ img {
 
 .checkbox-correction {
     padding-left: 340px;
+}
+
+.col-5-new {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.jumbotron-new {
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    background-color: #007bff0f;
+    border-radius: 0.3rem;
+}
+
+.mb-4-new, .my-4-new {
+    margin-bottom: 0.5rem!important;
 }
 

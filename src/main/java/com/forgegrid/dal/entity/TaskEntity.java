@@ -19,7 +19,15 @@ public class TaskEntity {
     private Long id;
     private String title;
     private String description;
-    private String creator;
     private String link;
+    private String creator;
     private int price;
+
+    public TaskEntity(String title, String description, String link, String creator, int price) {
+        this.title = title;
+        this.description = description;
+        this.link = link;
+        this.creator = creator;
+        this.price = price;
+    }
 }

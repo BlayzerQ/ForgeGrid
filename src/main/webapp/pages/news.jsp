@@ -45,9 +45,9 @@
 
         <!-- Current page main code -->
         <c:forEach var="item" items='${news}'>
-            <div class="jumbotron jumbotron-correction">
+            <div class="jumbotron-new jumbotron-correction">
                 <h1>${item.title}</h1>
-                <p>${item.content}</p>
+                <p>${item.description}</p>
             </div>
         </c:forEach>
 

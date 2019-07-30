@@ -18,5 +18,11 @@ public class NewsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-    private String content;
+    private String description;
+
+    public NewsEntity(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
+
 }

@@ -16,10 +16,10 @@
             <div class="container" style="width: 300px;">
                 <input type="text" class="form-control md-form mb-2" id="username"
                        placeholder="Логин" required
-                       autofocus value="test">
+                       autofocus>
                 <input type="password" class="form-control md-form mb-4" id="password"
                        placeholder="Пароль"
-                       required value="1234">
+                       required>
                 <p id="loginErrorMessage"></p>
                 <button class="btn btn-primary btn-block" type="button" onclick="handleLoginProcess()">Войти</button>
                 <script>

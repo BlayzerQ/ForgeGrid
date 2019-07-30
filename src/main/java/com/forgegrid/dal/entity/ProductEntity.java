@@ -18,7 +18,7 @@ public class ProductEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Type type;
-    private String name;
+    private String title;
     private String description;
     private String productVersion;
     private String mcVersion;
@@ -26,7 +26,17 @@ public class ProductEntity {
     private String developer;
     private int price;
 
-    enum Type {
+    public ProductEntity(Type type, String title, String description, String productVersion, String mcVersion, String developer, int price) {
+        this.type = type;
+        this.title = title;
+        this.description = description;
+        this.productVersion = productVersion;
+        this.mcVersion = mcVersion;
+        this.developer = developer;
+        this.price = price;
+    }
+
+    public enum Type {
         WEB,
         MOD,
         PLUGIN

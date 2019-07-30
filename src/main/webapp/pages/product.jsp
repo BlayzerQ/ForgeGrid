@@ -42,7 +42,7 @@
     <div class="jumbotron" style="margin-top: 20px;">
 
         <!-- Current page main code -->
-        <h1 class="px-3 pb-4 text-center">Продукт "${product.name} (${product.mcVersion})"</h1>
+        <h1 class="px-3 pb-4 text-center">Продукт "${product.title} (${product.mcVersion})"</h1>
 
         <hr>
 
@@ -51,7 +51,7 @@
                 <h2>Общие данные</h2>
                 <div class="product-data__item">
                     <div class="product-data__property">Название мода:</div>
-                    <div class="product-data__value">${product.name}</div>
+                    <div class="product-data__value">${product.title}</div>
                 </div>
                 <div class="product-data__item">
                     <div class="product-data__property">Версия Minecraft:</div>

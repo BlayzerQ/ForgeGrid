@@ -32,7 +32,7 @@ public class UserEntity implements UserDetails {
     @Column(unique = true)
     private String email;
     private String password;
-    private Role role;
+    private Role role = Role.USER;
     private int money;
 
     public enum Role {
@@ -44,7 +44,7 @@ public class UserEntity implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singletonList(new SimpleGrantedAuthority(Role.USER.name()));
+        return Collections.singletonList(new SimpleGrantedAuthority(getRole().name()));
     }
 
     @Override

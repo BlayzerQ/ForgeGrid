@@ -43,6 +43,7 @@
                 <span class="sr-only">Toggle Dropdown</span>
             </button>
             <div class="dropdown-menu dropdown-menu-right">
+                <a href="/panel" class="dropdown-item" target="_self">Панель</a>
                 <form method="post" action="/logout">
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     <input type="submit" class="dropdown-item" value="Выйти"/>
@@ -53,10 +54,8 @@
     </div>
 </nav>
 <script>
-    var page = window.location.pathname;
-    if (page != '/account') {
-        var link = document.querySelector('[ href="' + page + '" ]');
-        link.style.color = '#dc3545';
-        link.style.borderBottom = '2px solid #dc3545';
-    }
+    var page = window.location.pathname + window.location.search;
+	var link = document.querySelector('[ href="' + page + '" ]:not(.btn-outline-primary):not(.dropdown-item)');
+	link.style.color = '#dc3545';
+	link.style.borderBottom = '2px solid #dc3545';
 </script>
